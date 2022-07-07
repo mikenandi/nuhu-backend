@@ -96,6 +96,10 @@ module.exports = {
       let people_to_notify = await Notifier.find();
 
       for (let person of people_to_notify) {
+        let userRole = await User.findOne({ where: { id: person.user_id } });
+
+        if (useRole === "employer" || userRole === "maid-by-agent") break;
+
         // sending token to clients
         await axios({
           method: "POST",
