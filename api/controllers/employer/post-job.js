@@ -96,7 +96,8 @@ module.exports = {
       let people_to_notify = await Notifier.find();
 
       for (let person of people_to_notify) {
-        // let userRole = await User.findOne({ where: { id: person.user_id } });
+        let userRole = await User.findOne({ where: { id: person.user_id } });
+        console.log(userRole);
 
         // if (useRole === "employer" || userRole === "maid-by-agent") break;
 
