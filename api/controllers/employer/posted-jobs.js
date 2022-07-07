@@ -26,7 +26,7 @@ module.exports = {
     try {
       // 🎣 checking jobs available
       let jobs_recorded = await Job.find({
-        where: { employer_id: inputs.user_id, job_status: "available" },
+        where: { employer_id: inputs.user_id },
       });
 
       // checking if there is any jobs found first
