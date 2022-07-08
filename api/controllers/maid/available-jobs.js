@@ -28,7 +28,7 @@ module.exports = {
       // getting a list of jobs available
       let jobs_available = await Job.find({
         where: { job_status: "available" },
-        sort: [{ salary: "DESC" }],
+        sort: [{ created_at: "DESC" }],
       });
 
       // arrary of objects with desired output
