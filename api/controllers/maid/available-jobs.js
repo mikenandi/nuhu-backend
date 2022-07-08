@@ -41,8 +41,9 @@ module.exports = {
           where: { applicant_id: inputs.user_id, job_id: job.id },
         });
 
-        if (isAlreadyApplied) break;
         // getting location id that relates to the job.
+        if (isAlreadyApplied) continue;
+
         let extracted_location_id = await User.findOne({
           where: { id: job.employer_id },
           select: ["location_id"],
